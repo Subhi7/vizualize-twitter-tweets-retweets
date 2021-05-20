@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .error {
+        color: red;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@4.8.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "area", "opacity": 0.6}, "encoding": {"color": {"type": "nominal", "field": "variable", "legend": {"title": "tweet type"}, "scale": {"domain": ["retweets", "original tweets", "total"], "range": ["#1F77B4", "#D62728", "grey"]}}, "x": {"type": "temporal", "field": "datetime", "timeUnit": "yearmonthdatehours", "title": "date"}, "y": {"type": "quantitative", "field": "value", "stack": null, "title": "tweet count"}}, "height": 500, "transform": [{"fold": ["retweets", "original tweets"], "as": ["variable", "value"]}], "width": 800}, {"mark": {"type": "area", "opacity": 0.15}, "encoding": {"color": {"value": "black"}, "x": {"type": "temporal", "field": "datetime", "timeUnit": "yearmonthdatehours", "title": "date"}, "y": {"type": "quantitative", "field": "total"}}}], "data": {"name": "data-7e9f9297a6c12de6fc172f52b1788ae2"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-7e9f9297a6c12de6fc172f52b1788ae2": [{"original tweets": 1.0, "retweets": 0.0, "datetime": "2020-03-15T00:00:00", "total": 1.0}, {"original tweets": 1.0, "retweets": 0.0, "datetime": "2020-05-11T00:00:00", "total": 1.0}, {"original tweets": 1.0, "retweets": 0.0, "datetime": "2021-01-13T00:00:00", "total": 1.0}, {"original tweets": 1.0, "retweets": 0.0, "datetime": "2021-02-01T00:00:00", "total": 1.0}, {"original tweets": 1.0, "retweets": 0.0, "datetime": "2021-02-22T00:00:00", "total": 1.0}, {"original tweets": 3.0, "retweets": 0.0, "datetime": "2021-03-09T00:00:00", "total": 3.0}, {"original tweets": 1.0, "retweets": 0.0, "datetime": "2021-03-21T00:00:00", "total": 1.0}, {"original tweets": 1.0, "retweets": 0.0, "datetime": "2021-03-23T00:00:00", "total": 1.0}, {"original tweets": 1.0, "retweets": 0.0, "datetime": "2021-04-10T00:00:00", "total": 1.0}, {"original tweets": 1.0, "retweets": 0.0, "datetime": "2021-04-14T00:00:00", "total": 1.0}, {"original tweets": 1.0, "retweets": 0.0, "datetime": "2021-04-15T00:00:00", "total": 1.0}, {"original tweets": 1.0, "retweets": 0.0, "datetime": "2021-04-19T00:00:00", "total": 1.0}, {"original tweets": 1.0, "retweets": 0.0, "datetime": "2021-04-20T00:00:00", "total": 1.0}, {"original tweets": 1.0, "retweets": 0.0, "datetime": "2021-04-22T00:00:00", "total": 1.0}, {"original tweets": 1.0, "retweets": 0.0, "datetime": "2021-04-25T00:00:00", "total": 1.0}, {"original tweets": 1.0, "retweets": 0.0, "datetime": "2021-04-26T00:00:00", "total": 1.0}, {"original tweets": 2.0, "retweets": 0.0, "datetime": "2021-04-27T00:00:00", "total": 2.0}, {"original tweets": 1.0, "retweets": 0.0, "datetime": "2021-04-28T00:00:00", "total": 1.0}, {"original tweets": 1.0, "retweets": 0.0, "datetime": "2021-04-30T00:00:00", "total": 1.0}, {"original tweets": 2.0, "retweets": 0.0, "datetime": "2021-05-01T00:00:00", "total": 2.0}, {"original tweets": 1.0, "retweets": 0.0, "datetime": "2021-05-02T00:00:00", "total": 1.0}, {"original tweets": 6.0, "retweets": 0.0, "datetime": "2021-05-04T00:00:00", "total": 6.0}, {"original tweets": 4.0, "retweets": 0.0, "datetime": "2021-05-05T00:00:00", "total": 4.0}, {"original tweets": 3.0, "retweets": 0.0, "datetime": "2021-05-06T00:00:00", "total": 3.0}, {"original tweets": 6.0, "retweets": 0.0, "datetime": "2021-05-07T00:00:00", "total": 6.0}, {"original tweets": 5.0, "retweets": 0.0, "datetime": "2021-05-08T00:00:00", "total": 5.0}, {"original tweets": 12.0, "retweets": 0.0, "datetime": "2021-05-09T00:00:00", "total": 12.0}, {"original tweets": 87.0, "retweets": 0.0, "datetime": "2021-05-10T00:00:00", "total": 87.0}, {"original tweets": 1303.0, "retweets": 1534.0, "datetime": "2021-05-11T00:00:00", "total": 2837.0}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div class="error" style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

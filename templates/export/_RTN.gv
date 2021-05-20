@@ -1,0 +1,356 @@
+/* Created by igraph 0.9.1 */
+digraph {
+  0 [
+    name=BlackIrishI
+    followers=16783
+    friends=16845
+    color=0
+    louvain_com=3
+    infomap_com=0
+  ];
+  1 [
+    name=C_W_UK
+    followers=2022
+    friends=2022
+    color=0
+    louvain_com=3
+    infomap_com=0
+  ];
+  2 [
+    name=mike3314935844
+    followers=32
+    friends=218
+    color=0
+    louvain_com=1
+    infomap_com=1
+  ];
+  3 [
+    name=SecretShopper10
+    followers=18
+    friends=18
+    color=0
+    louvain_com=1
+    infomap_com=1
+  ];
+  4 [
+    name=JohnParkens
+    followers=61
+    friends=255
+    color=0
+    louvain_com=1
+    infomap_com=1
+  ];
+  5 [
+    name=dieseleng5967
+    followers=2553
+    friends=3750
+    color=0
+    louvain_com=1
+    infomap_com=1
+  ];
+  6 [
+    name=bellausa17
+    followers=8538
+    friends=7364
+    color=0
+    louvain_com=1
+    infomap_com=1
+  ];
+  7 [
+    name=RonniLaurie
+    followers=23841
+    friends=26227
+    color=0
+    louvain_com=2
+    infomap_com=2
+  ];
+  8 [
+    name=MayaCohn
+    followers=1335
+    friends=1335
+    color=0
+    louvain_com=2
+    infomap_com=2
+  ];
+  9 [
+    name=LauraEWJenkins
+    followers=1182
+    friends=2873
+    color=0
+    louvain_com=2
+    infomap_com=2
+  ];
+  10 [
+    name=ReportsDaNews
+    followers=35593
+    friends=28767
+    color=0
+    louvain_com=2
+    infomap_com=2
+  ];
+  11 [
+    name=k_helca
+    followers=1960
+    friends=1960
+    color=0
+    louvain_com=5
+    infomap_com=3
+  ];
+  12 [
+    name=BlownawayToo
+    followers=2062
+    friends=3910
+    color=0
+    louvain_com=0
+    infomap_com=4
+  ];
+  13 [
+    name=SCVIndy
+    followers=3647
+    friends=3647
+    color=0
+    louvain_com=0
+    infomap_com=4
+  ];
+  14 [
+    name=surfcityphoto
+    followers=1975
+    friends=4996
+    color=0
+    louvain_com=0
+    infomap_com=4
+  ];
+  15 [
+    name=DreamweaverSjw
+    followers=46
+    friends=102
+    color=0
+    louvain_com=4
+    infomap_com=5
+  ];
+  16 [
+    name=Scarface___1983
+    followers=368
+    friends=368
+    color=0
+    louvain_com=4
+    infomap_com=5
+  ];
+  17 [
+    name=fuzhi_lin
+    followers=24912
+    friends=25264
+    color=0
+    louvain_com=0
+    infomap_com=4
+  ];
+  18 [
+    name=ThisWooly
+    followers=12230
+    friends=10635
+    color=0
+    louvain_com=0
+    infomap_com=4
+  ];
+  19 [
+    name=Despise45
+    followers=7582
+    friends=6861
+    color=0
+    louvain_com=0
+    infomap_com=4
+  ];
+  20 [
+    name=Rita08538521
+    followers=541
+    friends=362
+    color=0
+    louvain_com=0
+    infomap_com=4
+  ];
+  21 [
+    name=DeniseB75099278
+    followers=1092
+    friends=2739
+    color=0
+    louvain_com=0
+    infomap_com=4
+  ];
+  22 [
+    name=GGevirtz
+    followers=18238
+    friends=15975
+    color=0
+    louvain_com=0
+    infomap_com=4
+  ];
+  23 [
+    name=JimBobReturns
+    followers=1641
+    friends=3146
+    color=0
+    louvain_com=0
+    infomap_com=4
+  ];
+  24 [
+    name=lbarbara48_2
+    followers=4390
+    friends=4885
+    color=0
+    louvain_com=0
+    infomap_com=4
+  ];
+  25 [
+    name=Faster_Bunny
+    followers=28851
+    friends=28447
+    color=0
+    louvain_com=0
+    infomap_com=4
+  ];
+
+  0 -> 1 [
+    source=BlackIrishI
+    target=C_W_UK
+    tweet=1382681300096536580
+    time="2021-04-15T13:04:45+00:00"
+  ];
+  2 -> 3 [
+    source=mike3314935844
+    target=SecretShopper10
+    tweet=1381809345747296256
+    time="2021-04-13T03:19:55+00:00"
+  ];
+  4 -> 3 [
+    source=JohnParkens
+    target=SecretShopper10
+    tweet=1381791823027392524
+    time="2021-04-13T02:10:17+00:00"
+  ];
+  5 -> 3 [
+    source=dieseleng5967
+    target=SecretShopper10
+    tweet=1381772901834240001
+    time="2021-04-13T00:55:06+00:00"
+  ];
+  6 -> 3 [
+    source=bellausa17
+    target=SecretShopper10
+    tweet=1381771656167895042
+    time="2021-04-13T00:50:09+00:00"
+  ];
+  7 -> 8 [
+    source=RonniLaurie
+    target=MayaCohn
+    tweet=1381406635243892738
+    time="2021-04-12T00:39:41+00:00"
+  ];
+  9 -> 8 [
+    source=LauraEWJenkins
+    target=MayaCohn
+    tweet=1381364025641074694
+    time="2021-04-11T21:50:22+00:00"
+  ];
+  10 -> 8 [
+    source=ReportsDaNews
+    target=MayaCohn
+    tweet=1381363904752799747
+    time="2021-04-11T21:49:54+00:00"
+  ];
+  11 -> 11 [
+    source=k_helca
+    target=k_helca
+    tweet=1381268418268164096
+    time="2021-04-11T15:30:28+00:00"
+  ];
+  11 -> 11 [
+    source=k_helca
+    target=k_helca
+    tweet=1381268249527136256
+    time="2021-04-11T15:29:48+00:00"
+  ];
+  12 -> 13 [
+    source=BlownawayToo
+    target=SCVIndy
+    tweet=1381072908001366016
+    time="2021-04-11T02:33:35+00:00"
+  ];
+  14 -> 13 [
+    source=surfcityphoto
+    target=SCVIndy
+    tweet=1381071955751755779
+    time="2021-04-11T02:29:47+00:00"
+  ];
+  15 -> 16 [
+    source=DreamweaverSjw
+    target=Scarface___1983
+    tweet=1380145655654547457
+    time="2021-04-08T13:09:00+00:00"
+  ];
+  17 -> 13 [
+    source=fuzhi_lin
+    target=SCVIndy
+    tweet=1379868733536079874
+    time="2021-04-07T18:48:37+00:00"
+  ];
+  18 -> 13 [
+    source=ThisWooly
+    target=SCVIndy
+    tweet=1379868636035309573
+    time="2021-04-07T18:48:14+00:00"
+  ];
+  18 -> 13 [
+    source=ThisWooly
+    target=SCVIndy
+    tweet=1379867903743365120
+    time="2021-04-07T18:45:19+00:00"
+  ];
+  18 -> 13 [
+    source=ThisWooly
+    target=SCVIndy
+    tweet=1379867166359617538
+    time="2021-04-07T18:42:23+00:00"
+  ];
+  19 -> 13 [
+    source=Despise45
+    target=SCVIndy
+    tweet=1379518985008472065
+    time="2021-04-06T19:38:50+00:00"
+  ];
+  20 -> 13 [
+    source=Rita08538521
+    target=SCVIndy
+    tweet=1379245969473216513
+    time="2021-04-06T01:33:58+00:00"
+  ];
+  21 -> 13 [
+    source=DeniseB75099278
+    target=SCVIndy
+    tweet=1379233610029481984
+    time="2021-04-06T00:44:52+00:00"
+  ];
+  22 -> 13 [
+    source=GGevirtz
+    target=SCVIndy
+    tweet=1379201308113133570
+    time="2021-04-05T22:36:30+00:00"
+  ];
+  23 -> 13 [
+    source=JimBobReturns
+    target=SCVIndy
+    tweet=1379184688825204737
+    time="2021-04-05T21:30:28+00:00"
+  ];
+  24 -> 13 [
+    source=lbarbara48_2
+    target=SCVIndy
+    tweet=1379183449114836992
+    time="2021-04-05T21:25:32+00:00"
+  ];
+  25 -> 13 [
+    source=Faster_Bunny
+    target=SCVIndy
+    tweet=1379159435310989317
+    time="2021-04-05T19:50:07+00:00"
+  ];
+}

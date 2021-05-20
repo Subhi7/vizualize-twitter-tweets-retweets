@@ -1,0 +1,10 @@
+~umpy==1.18.5
+pandas==1.0.5
+Flask_Executor==0.9.4
+altair==4.1.0
+json_lines==0.5.0
+Flask==1.1.2
+louvain==0.7.0
+azure_storage==0.37.0
+numpy==1.20.3
+python_igraph==0.9.1
