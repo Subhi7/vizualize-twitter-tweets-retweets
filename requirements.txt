@@ -4,7 +4,7 @@ altair==4.1.0
 json_lines==0.5.0
 Flask==1.1.2
 louvain==0.7.0
-azure_storage==0.37.0
+azure_storage_blob==12.8.1
 numpy==1.20.3
 python_igraph==0.9.1
 azure_servicebus==7.2.0
