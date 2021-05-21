@@ -31,7 +31,7 @@ class Receiver:
 		            	data = get_blob_data.get_data(self.msg_dict['container_name'],
                                 						self.msg_dict['blob_name'], 
                                 						self.msg_dict['request_id'])
-		            	main_visualizer.timelineviz(self.msg_dict['request_id'], "dummy", data)
+# 		            	main_visualizer.timelineviz(self.msg_dict['request_id'], "dummy", data)
 		            	main_visualizer.retweetviz(self.msg_dict['request_id'], "dummy", data)
 		            	receiver.complete_message(msg)
 		    return self.queue_empty
