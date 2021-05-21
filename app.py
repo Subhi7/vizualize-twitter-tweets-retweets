@@ -54,9 +54,9 @@ def webprint():
 
 	request_id = request.args.get('request_id')
 	hashtag = request.args.get('hashtag')
-	filename = f"{request_id}_timeline.html"
+	filename = f"request_{request_id}_timeline.html"
 
-	if (path.isfile('templates/filename')):
+	if (path.isfile('templates/'+filename)):
 		return render_template(filename)
 
 	# data = get_blob_data(1,2,3)
@@ -75,7 +75,7 @@ def webprint_2():
 
 	request_id = request.args.get('request_id')
 	hashtag = request.args.get('hashtag')
-	filename = f"{request_id}_RTN.html"
+	filename = f"request_{request_id}_RTN.html"
 
 	# if str(path.isfile('templates/filename')):
 	# 	return render_template(filename)
@@ -89,7 +89,7 @@ def webprint_2():
 	#                         msg_dict['blob_name'], 
 	#                         msg_dict['request_id'])
 
-	if (path.isfile('templates/filename')):
+	if (path.isfile('templates/'+filename)):
 		return render_template(filename, hashtag = hashtag)
 
 	return {'status': 'ML model still working on {request_id}'}
