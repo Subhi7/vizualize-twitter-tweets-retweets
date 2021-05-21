@@ -34,7 +34,7 @@ def tweetjson_to_dff(data):
     print("problem in tweetjson_to_dff")
     tweetdf['created_at'] = pd.to_datetime(tweetdf['created_at']).dt.strftime('%Y-%m-%dT%H:%M%:%SZ')
     print("problem in tweetjson_to_dff 2")
-    tweetdf['created_at'] = pd.to_datetime(tweetdf['created_at']).dt.date
+    tweetdf['created_at'] = pd.to_datetime(tweetdf['created_at'] ,errors='coerce').dt.date
     print("no problem in tweetjson_to_dff")
 
     tweetdf.columns = ['id', 'time', 'type']
