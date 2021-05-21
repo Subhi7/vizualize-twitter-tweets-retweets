@@ -34,7 +34,7 @@ def tweetjson_to_dff(data):
     print("problem in tweetjson_to_dff")
     tweetdf['created_at'] = pd.to_datetime(tweetdf['created_at']).dt.strftime('%Y-%m-%dT%H:%M%:%SZ')
     print("problem in tweetjson_to_dff 2")
-    tweetdf['created_at'] = pd.to_datetime(tweetdf['created_at'] ,errors='coerce').dt.date
+#     tweetdf['created_at'] = pd.to_datetime(tweetdf['created_at'] ,errors='coerce').dt.date
     print("no problem in tweetjson_to_dff")
 
     tweetdf.columns = ['id', 'time', 'type']
@@ -43,12 +43,18 @@ def tweetjson_to_dff(data):
 
 
 def groupby_dates(tweetdf):
+    print("problem in groupby_dates")
     tweetdf["time"] = pd.to_datetime(tweetdf["time"])
+    print("problem in groupby_dates 1")
     tweetdf = tweetdf.set_index("time")
+    print("problem in groupby_dates 2")
     grouper = tweetdf.groupby([pd.Grouper(freq='1H'), 'type'])
     result = grouper['type'].count().unstack('type').fillna(0)
+    print("problem in groupby_dates 3")
     result["datetime"] = result.index
+    print("problem in groupby_dates 4")
     result["total"] = result["original tweets"] + result["retweets"]
+    print("no problem in groupby_dates ")
     return result
 
 def plot(grouped_tweetdf, order=["original tweets", "retweets"]):
