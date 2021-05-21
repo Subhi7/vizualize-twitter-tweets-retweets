@@ -31,9 +31,11 @@ def tweetjson_to_dff(data):
     # tweettempdf = pd.read_csv(filename)
     tweetdf = tweettempdf[['id', 'created_at']]
     tweetdf['type'] = np.where(tweettempdf['tweet'].str[0:2] == 'RT', 'retweets', 'original tweets')
+    print("problem in tweetjson_to_dff")
     tweetdf['created_at'] = pd.to_datetime(tweetdf['created_at']).dt.strftime('%Y-%m-%dT%H:%M%:%SZ')
+    print("problem in tweetjson_to_dff 2")
     tweetdf['created_at'] = pd.to_datetime(tweetdf['created_at']).dt.date
-    
+    print("no problem in tweetjson_to_dff")
 
     tweetdf.columns = ['id', 'time', 'type']
 
