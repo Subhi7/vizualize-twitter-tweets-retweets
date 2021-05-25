@@ -33,6 +33,7 @@ class Receiver:
                                 						self.msg_dict['request_id'])
 # 		            	main_visualizer.timelineviz(self.msg_dict['request_id'], "dummy", data)
 		            	main_visualizer.retweetviz(self.msg_dict['request_id'], "dummy", data)
+				main_visualizer.hashtagviz(self.msg_dict['request_id'], "dummy", data)
 		            	receiver.complete_message(msg)
 		    return self.queue_empty
 
