@@ -64,7 +64,7 @@ def webprint():
 	# main_visualizer.timelineviz(request_id, data)
 	# main_visualizer.retweetviz(request_id, data)
 
-	return {'status': 'ML model still working on {request_id}'}
+	return {'status': f'ML model still working on request ID {request_id} and hashtag {hashtag}'}
 
 @app.route('/graph-viz')
 def webprint_2():
@@ -92,7 +92,24 @@ def webprint_2():
 	if (path.isfile('templates/'+filename)):
 		return render_template(filename, hashtag = hashtag)
 
-	return {'status': 'ML model still working on {request_id}'}
+	return {'status': f'ML model still working on request ID {request_id} and hashtag {hashtag}'}
+
+@app.route('/hashtag-viz')
+def webprint_3():
+
+	global flag
+	print("flag value isssss", flag)
+	if flag == 0:
+		executor.submit(receiver)
+
+	request_id = request.args.get('request_id')
+	hashtag = request.args.get('hashtag')
+	filename = f"request_{request_id}_HTN.html"
+
+	if (path.isfile('templates/'+filename)):
+		return render_template(filename, hashtag = hashtag)
+
+	return {'status': f'ML model still working on request ID {request_id} and hashtag {hashtag}'}
 
 # if __name__ == '__main__':
 #     app.run(host = '127.0.0.1', port = 3000)
