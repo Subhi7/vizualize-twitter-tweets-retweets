@@ -28,6 +28,53 @@ __license__   = "GPLv3"
 __version__   = "0.1"
 __email__     = "pournaki@mis.mpg.de"
 
+def new_hashtagnetwork(data):
+    """Generate Hashtag Network from Twitter data collection.
+
+    Parameters:
+    filename: path to jsonl twitter object to transform
+    giant_component (boolean): keep only largest weakly connected component 
+    
+    Returns:
+    igraph graph object: hashtag network where a link is created
+    between i to j if i and j appear in the same tweet.
+    """
+    
+    edgelist = []
+    
+                        
+    for index, row in data.iterrows():
+        
+        if len((row['hashtags'][2:-2]).split("', '")) > 1:
+            cohashtags = []
+            for element in (row['hashtags'][2:-2]).split("', '"):
+                hashtag = element
+                cohashtags.append(hashtag)
+            combs = list(combinations(cohashtags,2))
+            for element in combs:
+                source = element[0]
+                target = element[1]
+                
+                time_str = datetime.strptime(row['created_at'], '%Y-%m-%dT%H:%M:%S.%f%z').isoformat(timespec='seconds')
+                edgelist.append((source, target, time_str))
+
+            
+    print(edgelist)
+    H = ig.Graph.DictList(edges=(dict(source=source, target=target, time=time, weight=1) for source, target, time in edgelist), 
+                          vertices=None, 
+                          directed=False)
+
+   
+    H = H.simplify(multiple=True,combine_edges=dict(source="first", 
+                                                    target="first", 
+                                                    time="first", 
+                                                    weight="sum"))
+
+    # remove links that have too low weight
+   
+    
+    return(H)
+
 def json_to_jsonlt(filename):
     """Transform nested json (legacy format) to jsonl.
     
