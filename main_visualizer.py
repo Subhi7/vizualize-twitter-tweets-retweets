@@ -29,36 +29,7 @@ from datetime import datetime
 import datetime as dt
 import pathlib
 
-# ------- UI --------- #
-# Some CSS changes
-#st.markdown('<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;\
-#            700&display=swap" rel="stylesheet"> ',
-#            unsafe_allow_html=True)
-#st.markdown(
-#    '<style>.reportview-container .markdown-text-container{font-family:\
-#    "Inter", -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica\
-#     Neue",Arial,sans-serif}\
-#     #titlelink {color: white;\
-#     text-decoration: none}\
-#     #titlelink:hover {color: #cccccc;\
-#     text-decoration: none}</style>', unsafe_allow_html=True)
-#st.markdown('<style>.ae{font-family:"Inter",-apple-system,system-ui,BlinkMacSystemFont,\
-#            "Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}</style>',
-#            unsafe_allow_html=True)
-#st.markdown('<style>body{font-family:"Inter",-apple-system,system-ui,BlinkMacSystemFont,\
-#            "Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}</style>',
-#            unsafe_allow_html=True)
-#st.markdown('<style>code{color:black}</style>', unsafe_allow_html=True)
-#st.markdown('<style>.reportview-container .markdown-text-container a{color:rgba\
-#            (83,106,160,1)}</style>', unsafe_allow_html=True)
-#st.markdown('<head><title>twitter explorer</title></head>',
-#            unsafe_allow_html=True)
-#st.markdown('<p style="font-size: 30pt; font-weight: bold; color: white; \
-#    background-color: #000">&nbsp;\
-#    <a id="titlelink" href="https://twitterexplorer.org">twitter explorer\
-#    <span style="font-size:10pt;">BETA</span></a>\
-#    </p>', unsafe_allow_html=True)
-#st.title("Visualizer")
+
 
 def timelineviz(request_id, hashtag, data):
 
@@ -157,4 +128,56 @@ def retweetviz(request_id, hashtag, data):
     convert_graph(G, exportname + "_RTN")
     
 # ------------------------------------------------------------------
+
+def hashtagviz(request_id, hashtag, data):
+
+    outputdir = "./templates/"
+    projectdir = outputdir 
+
+    node_thresh_htn = 0
+    link_thresh_htn = 0
+
+    H = new_hashtagnetwork(data)
+       
+    H, Hcg = compute_louvain(H)
+    cgl_d3 = d3_cg_htn(Hcg)
+    cgl_d3["graph"] = {}
+    cgl_d3['graph']['type'] = "Hashtag network <br> Louvain graph"
+    cgl_d3['graph']['hastag'] = "hashtag here"
+    cgl_d3['graph']['collected_on'] = 'today'
+    cgl_d3['graph']['first_tweet'] = 'today'
+    cgl_d3['graph']['last_tweet'] = 'today'
+    cgl_d3['graph']['N_nodes'] = len(cgl_d3["nodes"])
+    cgl_d3['graph']['N_links'] = len(cgl_d3["links"])
+    x = cg_htn_html(cgl_d3)
+    with open(f"{projectdir}/{request_id}_HTN_CG_louvain.html",
+              "w", encoding='utf-8') as f:
+        f.write(x)
+
+
+    # get the first and last tweet    
+    edgeslist = list(H.es)
+    firstdate_str = iso_to_string(edgeslist[-1]["time"])
+    lastdate_str = iso_to_string(edgeslist[0]["time"])
+
+    HTN = d3_htn(H)
+    HTN['graph'] = {}
+    HTN['graph']['type'] = "Hashtag network"
+    HTN['graph']['N_nodes'] = len(HTN["nodes"])
+    HTN['graph']['N_links'] = len(HTN["links"])
+    HTN['graph']['keyword'] = hashtag
+    HTN['graph']['collected_on'] = 'today'
+    HTN['graph']['first_tweet'] = firstdate_str
+    HTN['graph']['last_tweet'] = lastdate_str
+
+    x = htn_html(data=HTN)
+    
+    with open(f"{projectdir}/{request_id}_HTN.html", "w", encoding='utf-8') as f:
+        f.write(x)
+
+    savename = f"{projectdir}/HTN"
+    exportname = f"{projectdir}/export/"
+    if not os.path.exists(exportname):
+        os.makedirs(exportname)
+    convert_graph(H, exportname +  "_HTN")
 
