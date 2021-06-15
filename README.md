@@ -21,3 +21,6 @@ TENANT_ID
 In order to run this code on local, the modules in requirements.txt file should be downloaded. Then app.py should be run. Once the endpoint receives a GET request, the receiver_queue thread is triggered and is listening for messages from the ML module. Flask endpoint has to be requested every 1 min until visualization is found. 
 
 In order to run this code on Azure, this has to be published as an Azure Web Service App.
+
+Reference:
+Pournaki, A., Gaisbauer, F., Banisch, S., & Olbrich, E. (2021). The Twitter Explorer: A Framework for Observing Twitter through Interactive Networks. Journal of Digital Social Research, 3(1), 106–118. https://doi.org/10.33621/jdsr.v3i1.64
